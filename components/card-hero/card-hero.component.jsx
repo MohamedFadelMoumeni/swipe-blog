@@ -1,11 +1,15 @@
 import styled from "styled-components"
+import Fade from 'react-reveal/Fade';
 
 const CardHero = ({rgba, backImg}) => {
     return (
-        <Container rgba={rgba} backImg={backImg}>
+       <Fade left>
+            <Container rgba={rgba} backImg={backImg}>
             <Title>Lorem ipsum dolor sit amet consectetur.</Title>
             <Desc>Lorem ipsum dolor sit amet consectetur adipisicing.</Desc>
         </Container>
+
+       </Fade>
 
     )
 }

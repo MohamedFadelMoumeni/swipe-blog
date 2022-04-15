@@ -2,6 +2,7 @@ import styled from "styled-components"
 import Container from "../container/container.component";
 import Image from "next/image"
 import {IoIosArrowDown} from "react-icons/io"
+import Fade from "react-reveal"
 
 
 const Latest = () => {
@@ -11,6 +12,7 @@ const Latest = () => {
             <LatestContainer>
                 <Title>Lastest Blog</Title>
                 <Directory>
+                    <Fade top>
                     <Card>
                         <Image src="/assets/news-01.jpg" width="350" height="250"/>
                         <CardTitle>Lorem ipsum dolor sit amet consectetur adipisicing.</CardTitle>
@@ -21,6 +23,20 @@ const Latest = () => {
                     </Creator>
 
                     </Card>
+                    </Fade>
+                    <Fade top>
+                    <Card >
+                        <Image src="/assets/news-01.jpg" width="350" height="250"/>
+                        <CardTitle>Lorem ipsum dolor sit amet consectetur adipisicing.</CardTitle>
+                        <CardDesc>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt sunt veniam iure, a ea neque!</CardDesc>
+                        <Creator>
+                        <Image src="/assets/avatar.jfif" width="30px" height="30px" style={{borderRadius: "50%"}}/>
+                        <Text>By <strong>Micheal Osman </strong>· Nov 2, 2022</Text>
+                    </Creator>
+
+                    </Card>
+                    </Fade>
+                    <Fade top>
                     <Card>
                         <Image src="/assets/news-01.jpg" width="350" height="250"/>
                         <CardTitle>Lorem ipsum dolor sit amet consectetur adipisicing.</CardTitle>
@@ -31,19 +47,23 @@ const Latest = () => {
                     </Creator>
 
                     </Card>
-                    <Card>
-                        <Image src="/assets/news-01.jpg" width="350" height="250"/>
-                        <CardTitle>Lorem ipsum dolor sit amet consectetur adipisicing.</CardTitle>
-                        <CardDesc>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt sunt veniam iure, a ea neque!</CardDesc>
-                        <Creator>
-                        <Image src="/assets/avatar.jfif" width="30px" height="30px" style={{borderRadius: "50%"}}/>
-                        <Text>By <strong>Micheal Osman </strong>· Nov 2, 2022</Text>
-                    </Creator>
-
-                    </Card>
+                    </Fade>
 
                 </Directory>
                 <Directory>
+                   <Fade top>
+                   <Card>
+                        <Image src="/assets/news-01.jpg" width="350" height="250"/>
+                        <CardTitle>Lorem ipsum dolor sit amet consectetur adipisicing.</CardTitle>
+                        <CardDesc>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt sunt veniam iure, a ea neque!</CardDesc>
+                        <Creator>
+                        <Image src="/assets/avatar.jfif" width="30px" height="30px" style={{borderRadius: "50%"}}/>
+                        <Text>By <strong>Micheal Osman </strong>· Nov 2, 2022</Text>
+                    </Creator>
+
+                    </Card>
+                   </Fade>
+                    <Fade top>
                     <Card>
                         <Image src="/assets/news-01.jpg" width="350" height="250"/>
                         <CardTitle>Lorem ipsum dolor sit amet consectetur adipisicing.</CardTitle>
@@ -54,7 +74,9 @@ const Latest = () => {
                     </Creator>
 
                     </Card>
-                    <Card>
+                    </Fade>
+                   <Fade top>
+                   <Card>
                         <Image src="/assets/news-01.jpg" width="350" height="250"/>
                         <CardTitle>Lorem ipsum dolor sit amet consectetur adipisicing.</CardTitle>
                         <CardDesc>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt sunt veniam iure, a ea neque!</CardDesc>
@@ -64,16 +86,7 @@ const Latest = () => {
                     </Creator>
 
                     </Card>
-                    <Card>
-                        <Image src="/assets/news-01.jpg" width="350" height="250"/>
-                        <CardTitle>Lorem ipsum dolor sit amet consectetur adipisicing.</CardTitle>
-                        <CardDesc>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt sunt veniam iure, a ea neque!</CardDesc>
-                        <Creator>
-                        <Image src="/assets/avatar.jfif" width="30px" height="30px" style={{borderRadius: "50%"}}/>
-                        <Text>By <strong>Micheal Osman </strong>· Nov 2, 2022</Text>
-                    </Creator>
-
-                    </Card>
+                   </Fade>
 
                 </Directory>
 
