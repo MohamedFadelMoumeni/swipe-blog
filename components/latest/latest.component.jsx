@@ -4,6 +4,7 @@ import Image from "next/image"
 import {IoIosArrowDown} from "react-icons/io"
 import Fade from "react-reveal"
 import { useRouter } from "next/router";
+import moment from "moment";
 
 
 const Latest = ({posts}) => {
@@ -19,13 +20,13 @@ const Latest = ({posts}) => {
                        posts?.length > 0 && posts?.map(post => (
                         <Fade key={post.id} top>
                         <Card onClick={() => router.push(`/${post.id}`)}>
-                            <Image src={post.medium_small ? post.medium_small : "/assets/news-01.jpg"} width="200" height="200" />
+                            <Image src={post.medium_small ? post.medium_small : "/assets/news-01.jpg"} width="300" height="300" />
                             <CardTitle>{post.title}</CardTitle>
                             <CardDesc>
                                 {post.content.slice(0, 50).replace(/(<([^>]+)>)/gi, "")+ "..."}
                             </CardDesc>
                             <Creator>
-                            <Text>By <strong>Med Tabit ,  </strong>{new Date(post.date).toDateString() }</Text>
+                            <Text>By <strong>Med Tabit ,  </strong>{moment(new Date(post.date)).format('MMMM d , YYYY') }</Text>
                         </Creator>
     
                         </Card>

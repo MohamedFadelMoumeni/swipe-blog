@@ -4,6 +4,7 @@ import styled from "styled-components"
 import Image from "next/image"
 import Spinner from "../components/spinner/spinner.component";
 import Header from "../components/header/header.component";
+import moment from "moment";
 
 export const getStaticProps = async (context) => {
     const allPosts = await getAllPosts();
@@ -49,7 +50,7 @@ const SingleBlog = ({post}) => {
             <Header />
         <Container>
             <Title>{post.title}</Title>
-            <Creator>By <strong>Med Tabit</strong>, {new Date(post.date).toDateString()}</Creator>
+            <Creator>By <strong>Med Tabit</strong>, {moment(new Date(post.date)).format('MMMM d , YYYY') }</Creator>
             <Image src={post.medium_large} width="600" height="600"/>
             <Content dangerouslySetInnerHTML={createContent()}>
             </Content>
