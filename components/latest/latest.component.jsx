@@ -3,92 +3,41 @@ import Container from "../container/container.component";
 import Image from "next/image"
 import {IoIosArrowDown} from "react-icons/io"
 import Fade from "react-reveal"
+import { useRouter } from "next/router";
 
 
-const Latest = () => {
+const Latest = ({posts}) => {
+
+    const router = useRouter()
     return (
         <Wrapper>
         <Container>
             <LatestContainer>
                 <Title>Lastest Blog</Title>
                 <Directory>
-                    <Fade top>
-                    <Card>
-                        <Image src="/assets/news-01.jpg" width="350" height="250"/>
-                        <CardTitle>Lorem ipsum dolor sit amet consectetur adipisicing.</CardTitle>
-                        <CardDesc>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt sunt veniam iure, a ea neque!</CardDesc>
-                        <Creator>
-                        <Image src="/assets/avatar.jfif" width="30px" height="30px" style={{borderRadius: "50%"}}/>
-                        <Text>By <strong>Micheal Osman </strong>· Nov 2, 2022</Text>
-                    </Creator>
+                   {
+                       posts?.length > 0 && posts?.map(post => (
+                        <Fade key={post.id} top>
+                        <Card onClick={() => router.push(`/${post.id}`)}>
+                            <Image src={post.medium_small ? post.medium_small : "/assets/news-01.jpg"} width="200" height="200" />
+                            <CardTitle>{post.title}</CardTitle>
+                            <CardDesc>
+                                {post.content.slice(0, 50).replace(/(<([^>]+)>)/gi, "")+ "..."}
+                            </CardDesc>
+                            <Creator>
+                            <Text>By <strong>Med Tabit ,  </strong>{new Date(post.date).toDateString() }</Text>
+                        </Creator>
+    
+                        </Card>
+                        </Fade>
+                       ))
+                   }
+                    
+                 
 
-                    </Card>
-                    </Fade>
-                    <Fade top>
-                    <Card >
-                        <Image src="/assets/news-01.jpg" width="350" height="250"/>
-                        <CardTitle>Lorem ipsum dolor sit amet consectetur adipisicing.</CardTitle>
-                        <CardDesc>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt sunt veniam iure, a ea neque!</CardDesc>
-                        <Creator>
-                        <Image src="/assets/avatar.jfif" width="30px" height="30px" style={{borderRadius: "50%"}}/>
-                        <Text>By <strong>Micheal Osman </strong>· Nov 2, 2022</Text>
-                    </Creator>
-
-                    </Card>
-                    </Fade>
-                    <Fade top>
-                    <Card>
-                        <Image src="/assets/news-01.jpg" width="350" height="250"/>
-                        <CardTitle>Lorem ipsum dolor sit amet consectetur adipisicing.</CardTitle>
-                        <CardDesc>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt sunt veniam iure, a ea neque!</CardDesc>
-                        <Creator>
-                        <Image src="/assets/avatar.jfif" width="30px" height="30px" style={{borderRadius: "50%"}}/>
-                        <Text>By <strong>Micheal Osman </strong>· Nov 2, 2022</Text>
-                    </Creator>
-
-                    </Card>
-                    </Fade>
 
                 </Directory>
-                <Directory>
-                   <Fade top>
-                   <Card>
-                        <Image src="/assets/news-01.jpg" width="350" height="250"/>
-                        <CardTitle>Lorem ipsum dolor sit amet consectetur adipisicing.</CardTitle>
-                        <CardDesc>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt sunt veniam iure, a ea neque!</CardDesc>
-                        <Creator>
-                        <Image src="/assets/avatar.jfif" width="30px" height="30px" style={{borderRadius: "50%"}}/>
-                        <Text>By <strong>Micheal Osman </strong>· Nov 2, 2022</Text>
-                    </Creator>
 
-                    </Card>
-                   </Fade>
-                    <Fade top>
-                    <Card>
-                        <Image src="/assets/news-01.jpg" width="350" height="250"/>
-                        <CardTitle>Lorem ipsum dolor sit amet consectetur adipisicing.</CardTitle>
-                        <CardDesc>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt sunt veniam iure, a ea neque!</CardDesc>
-                        <Creator>
-                        <Image src="/assets/avatar.jfif" width="30px" height="30px" style={{borderRadius: "50%"}}/>
-                        <Text>By <strong>Micheal Osman </strong>· Nov 2, 2022</Text>
-                    </Creator>
-
-                    </Card>
-                    </Fade>
-                   <Fade top>
-                   <Card>
-                        <Image src="/assets/news-01.jpg" width="350" height="250"/>
-                        <CardTitle>Lorem ipsum dolor sit amet consectetur adipisicing.</CardTitle>
-                        <CardDesc>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt sunt veniam iure, a ea neque!</CardDesc>
-                        <Creator>
-                        <Image src="/assets/avatar.jfif" width="30px" height="30px" style={{borderRadius: "50%"}}/>
-                        <Text>By <strong>Micheal Osman </strong>· Nov 2, 2022</Text>
-                    </Creator>
-
-                    </Card>
-                   </Fade>
-
-                </Directory>
 
             </LatestContainer>
             <MoreDiv>
@@ -133,6 +82,10 @@ row-gap: 1.5rem;
 export const Card = styled.div`
 display: flex;
 flex-direction: column;
+cursor: pointer;
+img{
+    object-fit: fill;
+}
 `;
 const CardTitle = styled.h3`
 color: #fff;

@@ -13,14 +13,11 @@ const Hero = () => {
                 <Wrapper>
                     <Header />
                     <Fade top>
-                    <Title>Appy launches new <br /> thmetic solutions</Title>
+                    <Title>SwipInv Agency</Title>
                     <Subltitle>
-                    Curious about how your favorite product was created? Hear from the team about how it was built, and how continued improvements are made.
+                    Agence de marketing digitale créative, qui donne la force <br /> à votre réussite.
                     </Subltitle>
-                    <Creator>
-                        <Image src="/assets/avatar.jfif" width="50px" height="50px" style={{borderRadius: "50%"}}/>
-                        <Text>By <strong>Micheal Osman </strong>· Nov 2, 2022</Text>
-                    </Creator>
+                  
                     </Fade>
               
                 </Wrapper>
